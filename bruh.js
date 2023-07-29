@@ -89,6 +89,4 @@ window.onload = () => {
         attributes: true
     });
     getBruhs();
-
-    document.getElementById('test').src = './image.bruh'
 }
