@@ -76,9 +76,8 @@ function renderImage(imageDom) {
 window.onload = () => {
     // dom update event listener
     var observer = new MutationObserver(function(mutations) {
-        console.log('DOM changed');
         mutations.forEach(function(mutation) {
-            if (mutation.type == 'childList') {
+            if (mutation.type == 'childList' || mutation.attributeName == 'src') {
                 getBruhs();
             }
         });
@@ -86,7 +85,10 @@ window.onload = () => {
 
     observer.observe(document.body, {
         childList: true,
-        subtree: true
+        subtree: true,
+        attributes: true
     });
     getBruhs();
+
+    document.getElementById('test').src = './image.bruh'
 }
